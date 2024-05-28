@@ -33,11 +33,14 @@ ftpClient_Model.helperFuncs = require('Communication/FTPClient/helper/funcs')
 -- Create a FTP client instance
 ftpClient_Model.ftpClient = FTPClient.create() -- FTP client to use for FTP connection
 ftpClient_Model.counter = 1 -- Internal counter, e.g. used to count sent data and use it for naming
-ftpClient_Model.formatter = Image.Format.JPEG.create() -- Formatter instance (JPG per default)
+--ftpClient_Model.formatter = Image.Format.JPEG.create() -- Formatter instance (JPG per default)
+ftpClient_Model.formatter = Image.Format.BMP.create() -- Formatter instance (JPG per default)
 
 -- Function to be processed asynchronously if 'asyncMode' is used
-ftpClient_Model.async = Engine.AsyncFunction.create()
-ftpClient_Model.async:setFunction("FTPClient.put", ftpClient_Model.ftpClient)
+ftpClient_Model.asyncPut = Engine.AsyncFunction.create()
+ftpClient_Model.asyncPut:setFunction("FTPClient.put", ftpClient_Model.ftpClient)
+ftpClient_Model.asyncPutFile = Engine.AsyncFunction.create()
+ftpClient_Model.asyncPutFile:setFunction("FTPClient.putFile", ftpClient_Model.ftpClient)
 
 -- Parameters to be saved permanently if wanted
 ftpClient_Model.parameters = {}
@@ -87,14 +90,14 @@ local function checkDataTransfer(futureHandle)
     _G.logger:warning(nameOfModule .. ": FTP put error.")
   end
 end
-Engine.AsyncFunction.register(ftpClient_Model.async, "OnFinished", checkDataTransfer)
+Engine.AsyncFunction.register(ftpClient_Model.asyncPut, "OnFinished", checkDataTransfer)
 
 local function sendData(data, filename)
   if ftpClient_Model.ftpClient:isConnected() then
     _G.logger:info(nameOfModule .. ": Try to send data")
 
     if ftpClient_Model.parameters.asyncMode then --> Asynchronous image transfer
-      ftpClient_Model.async:launch(filename, data)
+      ftpClient_Model.asyncPut:launch(filename, data)
 
     else --> Non asynchronous image transfer
       local suc = ftpClient_Model.ftpClient:put(filename, data)
@@ -123,25 +126,25 @@ local function sendImage(img, filename)
 
     if ftpClient_Model.parameters.asyncMode then --> Asynchronous image transfer
       if filename then
-        ftpClient_Model.async:launch(filename .. '.jpg', compImg)
+        ftpClient_Model.asyncPut:launch(filename .. '.bmp', compImg)
       elseif ftpClient_Model.parameters.imageName == "unknown" then
-        ftpClient_Model.async:launch(ftpClient_Model.parameters.imageName .. 'image' .. tostring(ftpClient_Model.counter) .. '.jpg', compImg)
+        ftpClient_Model.asasyncPutync:launch(ftpClient_Model.parameters.imageName .. 'image' .. tostring(ftpClient_Model.counter) .. '.bmp', compImg)
         ftpClient_Model.counter = ftpClient_Model.counter + 1
       else
-        ftpClient_Model.async:launch(ftpClient_Model.parameters.imageName .. '.jpg', compImg)
+        ftpClient_Model.asyncPut:launch(ftpClient_Model.parameters.imageName .. '.bmp', compImg)
       end
 
     else --> Non asynchronous image transfer
       local suc = false
       if filename then
-        suc = ftpClient_Model.ftpClient:put(filename .. '.jpg', compImg)
+        suc = ftpClient_Model.ftpClient:put(filename .. '.bmp', compImg)
       elseif ftpClient_Model.parameters.imageName == "unknown" then
-        suc = ftpClient_Model.ftpClient:put(ftpClient_Model.parameters.imageName .. 'image' .. tostring(ftpClient_Model.counter) .. '.jpg', compImg)
+        suc = ftpClient_Model.ftpClient:put(ftpClient_Model.parameters.imageName .. 'image' .. tostring(ftpClient_Model.counter) .. '.bmp', compImg)
         if suc then
           ftpClient_Model.counter = ftpClient_Model.counter + 1
         end
       else
-        suc = ftpClient_Model.ftpClient:put(ftpClient_Model.parameters.imageName .. '.jpg', compImg)
+        suc = ftpClient_Model.ftpClient:put(ftpClient_Model.parameters.imageName .. '.bmp', compImg)
       end
       if suc then
         _G.logger:info(nameOfModule .. ": FTP put OK.")
@@ -157,5 +160,29 @@ local function sendImage(img, filename)
 end
 Script.serveFunction("CSK_FTPClient.sendImage", sendImage)
 ftpClient_Model.sendImage = sendImage
+
+local function sendFile(localSource, remoteDestination)
+  if ftpClient_Model.ftpClient:isConnected() then
+    _G.logger:info(nameOfModule .. ": Try to send data")
+
+    if ftpClient_Model.parameters.asyncMode then --> Asynchronous image transfer
+      ftpClient_Model.asyncPutFile:launch(remoteDestination, localSource)
+
+    else --> Non asynchronous image transfer
+      local suc = ftpClient_Model.ftpClient:putFile(remoteDestination, localSource)
+
+      if suc then
+        _G.logger:info(nameOfModule .. ": FTP putFile OK.")
+      else
+        _G.logger:warning(nameOfModule .. ": FTP putFile error.")
+      end
+    end
+
+  else
+    _G.logger:warning(nameOfModule .. ": No FTP connection.")
+  end
+end
+Script.serveFunction("CSK_FTPClient.sendFile", sendFile)
+ftpClient_Model.sendFile = sendFile
 
 return ftpClient_Model
