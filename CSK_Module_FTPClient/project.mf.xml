@@ -195,6 +195,12 @@ If TRUE it will send the content in its own thread, but other apps can further r
                     <desc>Function to configure verbose mode of FTP connection.</desc>
                     <param desc="Status" multiplicity="1" name="status" type="bool"/>
                 </function>
+                <function name="sendFile">
+                    <trait>released</trait>
+                    <desc>Send file.</desc>
+                    <param desc="File to send." multiplicity="1" name="localSource" type="string"/>
+                    <param desc="" multiplicity="?" name="remoteDestination" type="string"/>
+                </function>
             </serves>
         </crown>
         <meta key="author">SICK AG</meta>
