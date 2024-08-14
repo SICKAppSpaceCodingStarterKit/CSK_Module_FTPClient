@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Check if features of module can be used on device and provide this via 'OnNewStatusModuleIsActive' event / 'getStatusModuleActive' function
 - Function 'getParameters' to provide PersistentData parameters
 - It is now possible to register to events to put received data (JPG or DATA) to the FTP server (see 'addRegistration')
+- Function to 'resetModule' to default setup
 
 ### Improvements
 - New UI design available (e.g. selectable via CSK_Module_PersistentData v4.1.0 or higher), see 'OnNewStatusCSKStyle'
