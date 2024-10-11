@@ -142,7 +142,7 @@ local function handleOnExpiredTmrFTPClient()
 
   updateUserLevel()
 
-  Script.notifyEvent("FTPClient_OnNewStatusModuleVersion", ftpClient_Model.version)
+  Script.notifyEvent("FTPClient_OnNewStatusModuleVersion", 'v' .. ftpClient_Model.version)
   Script.notifyEvent("FTPClient_OnNewStatusCSKStyle", ftpClient_Model.styleForUI)
   Script.notifyEvent("FTPClient_OnNewStatusModuleIsActive", _G.availableAPIs.default and _G.availableAPIs.specific)
 
