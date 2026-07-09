@@ -48,9 +48,15 @@ local function loadImageSpecificAPIs()
   Image.Format.JPEG = require 'API.Image.Format.JPEG'
 end
 
+-- Function to load specific Ethernet APIs
+local function loadEthernetAPIs()
+  Ethernet = require 'API.Ethernet'
+end
+
 availableAPIs.default = xpcall(loadAPIs, debug.traceback) -- TRUE if all default APIs were loaded correctly
 availableAPIs.specific = xpcall(loadSpecificAPIs, debug.traceback) -- TRUE if all specific APIs were loaded correctly
 availableAPIs.imageSpecific = xpcall(loadImageSpecificAPIs, debug.traceback) -- TRUE if all specific APIs were loaded correctly
+availableAPIs.ethernet = xpcall(loadEthernetAPIs, debug.traceback) -- TRUE if all specific APIs were loaded correctly
 
 return availableAPIs
 --**************************************************************************

@@ -185,6 +185,10 @@ It is possible to register to events of other apps to put the received data to t
                     <param desc="Succes" multiplicity="1" name="success" type="bool"/>
                     <param desc="Name of file (optionally with full file path on device) to transfer.&#10;Not supported in async mode." multiplicity="?" name="file" type="string"/>
                 </event>
+                <event name="OnNewStatusKeepAliveInterval">
+                    <desc>Notify status of keep alive interval.</desc>
+                    <param desc="Interval in seconds." multiplicity="1" name="interval" type="int"/>
+                </event>
                 <function name="pageCalled">
                     <desc>Function to register "OnResume" of the module UI (only as helper function).</desc>
                     <return desc="Empty string (only needed to simplify binding)." multiplicity="1" name="empty" type="string"/>
@@ -197,8 +201,8 @@ It is possible to register to events of other apps to put the received data to t
                     <desc>Disconnect from FTP server</desc>
                 </function>
                 <function name="setFTPServerIP">
-                    <desc>Set FTP srever IP.</desc>
-                    <param desc="IP of FTP server." multiplicity="1" name="ip" type="string"/>
+                    <desc>Set FTP server IP (might work with hostname as well if API Ethernet.resolveHostName is available on device).</desc>
+                    <param desc="IP (or hostname) of FTP server." multiplicity="1" name="ip" type="string"/>
                 </function>
                 <function name="setFTPPort">
                     <desc>Set FTP port.</desc>
@@ -397,6 +401,10 @@ If TRUE it will send the content in its own thread, but other apps can further r
                     <desc>Function to set FTP mode.</desc>
                     <param desc="Mode" multiplicity="1" name="mode" type="string"/>
                 </function>
+                <function name="setKeepAliveInterval">
+                    <desc>Function to set interval to send keep alive commands. Set to 0 to disable.</desc>
+                    <param desc="Interval in seconds." multiplicity="1" name="interval" type="int"/>
+                </function>
             </serves>
         </crown>
         <crown name="FTPClient_FC">
@@ -431,7 +439,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
             </crown>
         </crown>
         <meta key="author">SICK AG</meta>
-        <meta key="version">4.2.0</meta>
+        <meta key="version">4.3.0</meta>
         <meta key="priority">low</meta>
         <meta key="copy-protected">false</meta>
         <meta key="read-protected">false</meta>

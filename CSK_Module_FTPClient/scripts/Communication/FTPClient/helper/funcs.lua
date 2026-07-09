@@ -177,6 +177,36 @@ local function checkParameters(content, defaultTable)
 end
 funcs.checkParameters = checkParameters
 
+--- Function to check if IP is valid
+---@param ip string IP to check
+---@return bool success Success
+local function isValidIPv4(ip)
+  if type(ip) ~= "string" then
+    return false
+  end
+
+  -- Match 4 groups of 1�3 digits separated by dots
+  local a, b, c, d = ip:match("^(%d+)%.(%d+)%.(%d+)%.(%d+)$")
+  if not a then
+    return false
+  end
+
+  -- Convert to numbers and validate range 0�255
+  for _, octet in ipairs({a, b, c, d}) do
+    local num = tonumber(octet)
+    if not num or num < 0 or num > 255 then
+        return false
+    end
+    -- Prevent leading zeros like "01"
+    if tostring(num) ~= octet then
+        return false
+    end
+  end
+
+  return true
+end
+funcs.isValidIPv4 = isValidIPv4
+
 return funcs
 
 --**************************************************************************

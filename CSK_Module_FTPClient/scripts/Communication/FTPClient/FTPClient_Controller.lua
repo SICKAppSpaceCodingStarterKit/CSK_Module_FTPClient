@@ -32,6 +32,7 @@ Script.serveEvent("CSK_FTPClient.OnNewPassword", "FTPClient_OnNewPassword")
 Script.serveEvent("CSK_FTPClient.OnNewPassiveModeStatus", "FTPClient_OnNewPassiveModeStatus")
 Script.serveEvent('CSK_FTPClient.OnNewStatusAsyncMode', 'FTPClient_OnNewStatusAsyncMode')
 Script.serveEvent('CSK_FTPClient.OnNewStatusVerboseMode', 'FTPClient_OnNewStatusVerboseMode')
+Script.serveEvent('CSK_FTPClient.OnNewStatusKeepAliveInterval', 'FTPClient_OnNewStatusKeepAliveInterval')
 Script.serveEvent('CSK_FTPClient.OnNewStatusPathToLocalFile', 'FTPClient_OnNewStatusPathToLocalFile')
 
 Script.serveEvent('CSK_FTPClient.OnNewStatusMode', 'FTPClient_OnNewStatusMode')
@@ -167,6 +168,7 @@ local function handleOnExpiredTmrFTPClient()
   Script.notifyEvent('FTPClient_OnNewPassiveModeStatus', ftpClient_Model.parameters.passiveMode)
   Script.notifyEvent('FTPClient_OnNewStatusAsyncMode', ftpClient_Model.parameters.asyncMode)
   Script.notifyEvent('FTPClient_OnNewStatusVerboseMode', ftpClient_Model.parameters.verboseMode)
+  Script.notifyEvent('FTPClient_OnNewStatusKeepAliveInterval', ftpClient_Model.parameters.keepAliveInterval)
   if _G.availableAPIs.specific == true then
     Script.notifyEvent('FTPClient_OnNewStatusConnected', ftpClient_Model.ftpClient:isConnected())
   end
@@ -233,14 +235,14 @@ end
 Script.serveFunction("CSK_FTPClient.getFTPStatus", getFTPStatus)
 
 local function setFTPServerIP(ip)
-  if checkIP(ip) == true then
-    ftpClient_Model.parameters.serverIP = ip
-    _G.logger:fine(nameOfModule .. ': Set FTP server IP to: ' .. ip)
-    Script.notifyEvent('FTPClient_OnNewIPCheck', false)
-  else
-    _G.logger:warning(nameOfModule .. ': Not possible to set FTP server IP to: ' .. ip)
-    Script.notifyEvent('FTPClient_OnNewIPCheck', true)
-  end
+    if checkIP(ip) == true or _G.availableAPIs.ethernet == true then
+      ftpClient_Model.parameters.serverIP = ip
+      _G.logger:fine(nameOfModule .. ': Set FTP server to: ' .. ip)
+      Script.notifyEvent('FTPClient_OnNewIPCheck', false)
+    else
+      _G.logger:warning(nameOfModule .. ': Not possible to set FTP server IP to: ' .. ip)
+      Script.notifyEvent('FTPClient_OnNewIPCheck', true)
+    end
 end
 Script.serveFunction("CSK_FTPClient.setFTPServerIP", setFTPServerIP)
 
@@ -388,6 +390,12 @@ local function setVerboseMode(status)
   ftpClient_Model.parameters.verboseMode = status
 end
 Script.serveFunction('CSK_FTPClient.setVerboseMode', setVerboseMode)
+
+local function setKeepAliveInterval(interval)
+  _G.logger:fine(nameOfModule .. ': Set keep alive interval to: ' .. tostring(interval))
+  ftpClient_Model.parameters.keepAliveInterval = interval
+end
+Script.serveFunction('CSK_FTPClient.setKeepAliveInterval', setKeepAliveInterval)
 
 local function setLocalPath(path)
   ftpClient_Model.sourceFilePath = path

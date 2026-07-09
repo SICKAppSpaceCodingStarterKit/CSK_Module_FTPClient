@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## Release 4.3.0
+
+### New features
+- Support hostname as server address
+- Support keep alive commands
+
+### Improvements
+- Create target folder on server if it does not exists
+
 ## Release 4.2.0
 
 ### New features
