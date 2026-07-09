@@ -202,9 +202,10 @@
                                         </davinci-value-display>
                                         <layout-row id="RowLayout6">
                                             <layout-column id="ColumnLayout3" style="align-items: stretch">
-                                                <davinci-value-display id="VD_ServerIP" value="Server IP">
+                                                <davinci-value-display id="VD_ServerIP" value="Server IP / Hostname">
                                                 </davinci-value-display>
-                                                <davinci-text-field id="TF_ServerIP" type="text">
+                                                <davinci-text-field id="TF_ServerIP" type="text"
+                                                    title="IP or hostname of server">
                                                     <crown-edpws-binding property="value"
                                                         name="CSK_FTPClient/OnNewServerIP" update-on-resume>
                                                     </crown-edpws-binding>
@@ -509,7 +510,29 @@
                                         <layout-row id="RowLayout19" class="myCustomBorderBottom_CSK_Module_FTPClient"
                                             style="flex-grow: 0; flex-shrink: 0">
                                         </layout-row>
-                                        <layout-row id="RowLayout3" style="justify-content: space-evenly">
+                                        <layout-row id="RowLayout42" class="myCustomSpacerVert10_CSK_Module_FTPClient">
+                                        </layout-row>
+                                        <layout-row id="RowLayout3"
+                                            style="justify-content: space-evenly; align-items: center">
+                                            <layout-column id="ColumnLayout53" style="align-items: stretch">
+                                                <davinci-value-display id="VD_KeepAliveInterval"
+                                                    value="Keep alive interval [s]"
+                                                    title="Set interval in seconds to send keep alive commands to FTP server. Set to 0 to disable.">
+                                                </davinci-value-display>
+                                                <davinci-numeric-field id="NF_KeepAliveInterval" type="outline" min="0"
+                                                    max="99999" ticks="1" group-separator="," decimal-separator="."
+                                                    format-pattern="0"
+                                                    title="Set intervall to send keep alive commands to FTP server. Set to 0 to disable.">
+                                                    <crown-edpws-binding property="value"
+                                                        name="CSK_FTPClient/OnNewStatusKeepAliveInterval"
+                                                        update-on-resume>
+                                                    </crown-edpws-binding>
+                                                    <crown-binding event="change"
+                                                        name="CSK_FTPClient/setKeepAliveInterval"
+                                                        path="param/args/interval" auto-commit>
+                                                    </crown-binding>
+                                                </davinci-numeric-field>
+                                            </layout-column>
                                             <layout-column id="ColumnLayout20">
                                                 <davinci-checkbox id="CB_PassiveMode"
                                                     title="Status will be used with next connection.">
@@ -545,7 +568,6 @@
                                                     </crown-binding>
                                                 </davinci-checkbox>
                                             </layout-column>
-                                            <layout-column id="ColumnLayout22"></layout-column>
                                         </layout-row>
                                         <layout-row id="RowLayout29" class="myCustomBorderBottom_CSK_Module_FTPClient"
                                             style="flex-grow: 0; flex-shrink: 0">
@@ -614,12 +636,14 @@
                                                         style="align-items: stretch; flex-grow: 3">
                                                         <davinci-text-field id="TF_FiletoSend" type="text"
                                                             label="Source file">
-												<crown-edpws-binding property="value"
-													name="CSK_FTPClient/OnNewStatusPathToLocalFile" update-on-resume>
-												</crown-edpws-binding>
-												<crown-binding event="change" name="CSK_FTPClient/setLocalPath"
-													path="param/args/path" auto-commit>
-												</crown-binding>
+                                                            <crown-edpws-binding property="value"
+                                                                name="CSK_FTPClient/OnNewStatusPathToLocalFile"
+                                                                update-on-resume>
+                                                            </crown-edpws-binding>
+                                                            <crown-binding event="change"
+                                                                name="CSK_FTPClient/setLocalPath" path="param/args/path"
+                                                                auto-commit>
+                                                            </crown-binding>
                                                         </davinci-text-field>
                                                     </layout-column>
                                                     <layout-column id="ColumnLayout30" style="align-items: center">
@@ -629,9 +653,9 @@
                                                             <davinci-icon icon="content/send">
                                                             </davinci-icon>
                                                             <span></span>
-												<crown-binding event="submit" name="CSK_FTPClient/putFileViaUI"
-													auto-commit>
-												</crown-binding>
+                                                            <crown-binding event="submit"
+                                                                name="CSK_FTPClient/putFileViaUI" auto-commit>
+                                                            </crown-binding>
                                                         </davinci-button>
                                                     </layout-column>
                                                 </layout-row>

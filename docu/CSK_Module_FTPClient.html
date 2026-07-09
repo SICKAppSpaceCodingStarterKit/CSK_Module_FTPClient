@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="SICK AG">
-<title>Documentation - CSK_Module_FTPClient 4.2.0</title>
+<title>Documentation - CSK_Module_FTPClient 4.3.0</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
@@ -615,11 +615,11 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Documentation - CSK_Module_FTPClient 4.2.0</h1>
+<h1>Documentation - CSK_Module_FTPClient 4.3.0</h1>
 <div class="details">
 <span id="author" class="author">SICK AG</span><br>
-<span id="revnumber">version 4.2.0,</span>
-<span id="revdate">2026-01-29</span>
+<span id="revnumber">version 4.3.0,</span>
+<span id="revdate">2026-07-09</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -671,6 +671,7 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 <li><a href="#API:Function:CSK_FTPClient.setFTPServerIP"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setFTPServerIP()</span></a></li>
 <li><a href="#API:Function:CSK_FTPClient.setFTPSSecurityProtolMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setFTPSSecurityProtolMode()</span></a></li>
 <li><a href="#API:Function:CSK_FTPClient.setImageName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setImageName()</span></a></li>
+<li><a href="#API:Function:CSK_FTPClient.setKeepAliveInterval"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setKeepAliveInterval()</span></a></li>
 <li><a href="#API:Function:CSK_FTPClient.setKnownHostFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setKnownHostFilePath()</span></a></li>
 <li><a href="#API:Function:CSK_FTPClient.setLoadOnReboot"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setLoadOnReboot()</span></a></li>
 <li><a href="#API:Function:CSK_FTPClient.setLocalPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setLocalPath()</span></a></li>
@@ -708,6 +709,7 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusFileTransferSuccess"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFileTransferSuccess</span></a></li>
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusFlowConfigPriority"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFlowConfigPriority</span></a></li>
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusFTPSSecurityProtocol"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFTPSSecurityProtocol</span></a></li>
+<li><a href="#API:Event:CSK_FTPClient.OnNewStatusKeepAliveInterval"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusKeepAliveInterval</span></a></li>
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusKnownHostFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusKnownHostFilePath</span></a></li>
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusLoadParameterOnReboot"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusLoadParameterOnReboot</span></a></li>
 <li><a href="#API:Event:CSK_FTPClient.OnNewStatusMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusMode</span></a></li>
@@ -732,19 +734,19 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </li>
 <li><a href="#API:Crown:CSK_Module_FTPClient"><span class="api-crown">CSK_Module_FTPClient</span></a>
 <ul class="sectlevel3">
-<li><a href="#_short_description_91">Short description</a></li>
+<li><a href="#_short_description_93">Short description</a></li>
 <li><a href="#_overview_2">Overview</a></li>
 </ul>
 </li>
 <li><a href="#API:Crown:FTPClient_FC"><span class="api-crown">FTPClient_FC</span></a>
 <ul class="sectlevel3">
-<li><a href="#_short_description_92">Short description</a></li>
+<li><a href="#_short_description_94">Short description</a></li>
 <li><a href="#_overview_3">Overview</a></li>
 </ul>
 </li>
 <li><a href="#API:Crown:FTPClient_FC.Put"><span class="api-crown">FTPClient_FC.Put</span></a>
 <ul class="sectlevel3">
-<li><a href="#_short_description_93">Short description</a></li>
+<li><a href="#_short_description_95">Short description</a></li>
 <li><a href="#_overview_4">Overview</a></li>
 <li><a href="#_functions_2">Functions</a>
 <ul class="sectlevel4">
@@ -780,11 +782,11 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Version</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.0</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Date</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2026-01-29</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2026-07-09</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Author</p></th>
@@ -976,6 +978,9 @@ It is possible to register to events of other apps to put the received data to t
 <p><a href="#API:Function:CSK_FTPClient.setImageName">setImageName()</a></p>
 </li>
 <li>
+<p><a href="#API:Function:CSK_FTPClient.setKeepAliveInterval">setKeepAliveInterval()</a></p>
+</li>
+<li>
 <p><a href="#API:Function:CSK_FTPClient.setKnownHostFilePath">setKnownHostFilePath()</a></p>
 </li>
 <li>
@@ -1073,6 +1078,9 @@ It is possible to register to events of other apps to put the received data to t
 </li>
 <li>
 <p><a href="#API:Event:CSK_FTPClient.OnNewStatusFTPSSecurityProtocol">OnNewStatusFTPSSecurityProtocol</a></p>
+</li>
+<li>
+<p><a href="#API:Event:CSK_FTPClient.OnNewStatusKeepAliveInterval">OnNewStatusKeepAliveInterval</a></p>
 </li>
 <li>
 <p><a href="#API:Event:CSK_FTPClient.OnNewStatusKnownHostFilePath">OnNewStatusKnownHostFilePath</a></p>
@@ -2630,7 +2638,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect5">
 <h6 id="_short_description_37">Short description</h6>
 <div class="paragraph">
-<p>Set FTP srever IP.</p>
+<p>Set FTP server IP (might work with hostname as well if API Ethernet.resolveHostName is available on device).</p>
 </div>
 </div>
 <div class="sect5">
@@ -2655,7 +2663,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <td class="tableblock halign-left valign-top"><p class="tableblock">ip</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IP of FTP server.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP (or hostname) of FTP server.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2758,15 +2766,59 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Function:CSK_FTPClient.setKnownHostFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setKnownHostFilePath()</span></h5>
+<h5 id="API:Function:CSK_FTPClient.setKeepAliveInterval"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setKeepAliveInterval()</span></h5>
 <div class="sect5">
 <h6 id="_short_description_40">Short description</h6>
+<div class="paragraph">
+<p>Function to set interval to send keep alive commands. Set to 0 to disable.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_20">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interval in seconds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_39">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setKeepAliveInterval(interval)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:CSK_FTPClient.setKnownHostFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setKnownHostFilePath()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_41">Short description</h6>
 <div class="paragraph">
 <p>Function to set path  to known host file for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_20">Parameters</h6>
+<h6 id="_parameters_21">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2793,7 +2845,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_39">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_40">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setKnownHostFilePath(path)</code></pre>
@@ -2804,13 +2856,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setLoadOnReboot"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setLoadOnReboot()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_41">Short description</h6>
+<h6 id="_short_description_42">Short description</h6>
 <div class="paragraph">
 <p>Configure if this module should load its saved parameters at app/device boot up.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_21">Parameters</h6>
+<h6 id="_parameters_22">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2837,7 +2889,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_40">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_41">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setLoadOnReboot(status)</code></pre>
@@ -2848,13 +2900,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setLocalPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setLocalPath()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_42">Short description</h6>
+<h6 id="_short_description_43">Short description</h6>
 <div class="paragraph">
 <p>Function to set path to local file to send to FTP server.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_22">Parameters</h6>
+<h6 id="_parameters_23">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2881,7 +2933,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_41">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_42">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setLocalPath(path)</code></pre>
@@ -2892,13 +2944,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setParameterName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setParameterName()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_43">Short description</h6>
+<h6 id="_short_description_44">Short description</h6>
 <div class="paragraph">
 <p>Function to set the name of the parameters if saved/loaded via the CSK_PersistentData module.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_23">Parameters</h6>
+<h6 id="_parameters_24">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2925,7 +2977,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_42">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_43">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setParameterName(name)</code></pre>
@@ -2936,13 +2988,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setPassiveMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setPassiveMode()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_44">Short description</h6>
+<h6 id="_short_description_45">Short description</h6>
 <div class="paragraph">
 <p>Set if passive FTP connection should be used.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_24">Parameters</h6>
+<h6 id="_parameters_25">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2969,7 +3021,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_43">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_44">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setPassiveMode(status)</code></pre>
@@ -2980,13 +3032,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setPassword"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setPassword()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_45">Short description</h6>
+<h6 id="_short_description_46">Short description</h6>
 <div class="paragraph">
 <p>Set FTP connection password.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_25">Parameters</h6>
+<h6 id="_parameters_26">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3013,7 +3065,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_44">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_45">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setPassword(password)</code></pre>
@@ -3024,13 +3076,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setPeerVerificationStatus"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setPeerVerificationStatus()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_46">Short description</h6>
+<h6 id="_short_description_47">Short description</h6>
 <div class="paragraph">
 <p>Function to set status to use peer verification for FTPS connection.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_26">Parameters</h6>
+<h6 id="_parameters_27">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3057,7 +3109,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_45">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_46">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setPeerVerificationStatus(status)</code></pre>
@@ -3068,13 +3120,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setRegistereEventName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setRegistereEventName()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_47">Short description</h6>
+<h6 id="_short_description_48">Short description</h6>
 <div class="paragraph">
 <p>Function to preset event name to register to receive content to save on FTP server.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_27">Parameters</h6>
+<h6 id="_parameters_28">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3101,7 +3153,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_46">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_47">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setRegistereEventName(name)</code></pre>
@@ -3112,13 +3164,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setSFTPPrivateKeyPassword"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setSFTPPrivateKeyPassword()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_48">Short description</h6>
+<h6 id="_short_description_49">Short description</h6>
 <div class="paragraph">
 <p>Function to set password of private key file for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_28">Parameters</h6>
+<h6 id="_parameters_29">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3145,7 +3197,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_47">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_48">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setSFTPPrivateKeyPassword(password)</code></pre>
@@ -3156,53 +3208,9 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setSFTPPrivateKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setSFTPPrivateKeyPath()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_49">Short description</h6>
-<div class="paragraph">
-<p>Function to set path to private key file for SFTP connection.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_parameters_29">Parameters</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_48">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setSFTPPrivateKeyPath(path)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Function:CSK_FTPClient.setSFTPPublicKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setSFTPPublicKeyPath()</span></h5>
-<div class="sect5">
 <h6 id="_short_description_50">Short description</h6>
 <div class="paragraph">
-<p>Function to set path  to public key file for SFTP connection.</p>
+<p>Function to set path to private key file for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
@@ -3236,6 +3244,50 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <h6 id="_sample_auto_generated_49">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setSFTPPrivateKeyPath(path)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:CSK_FTPClient.setSFTPPublicKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setSFTPPublicKeyPath()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_51">Short description</h6>
+<div class="paragraph">
+<p>Function to set path  to public key file for SFTP connection.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_31">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_50">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setSFTPPublicKeyPath(path)</code></pre>
 </div>
 </div>
@@ -3244,13 +3296,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setUITableSelection"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setUITableSelection()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_51">Short description</h6>
+<h6 id="_short_description_52">Short description</h6>
 <div class="paragraph">
 <p>Function to set selection via UI table.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_31">Parameters</h6>
+<h6 id="_parameters_32">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3277,7 +3329,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_50">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_51">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setUITableSelection(selection)</code></pre>
@@ -3288,13 +3340,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setUsername"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setUsername()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_52">Short description</h6>
+<h6 id="_short_description_53">Short description</h6>
 <div class="paragraph">
 <p>Set FTP connection user.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_32">Parameters</h6>
+<h6 id="_parameters_33">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3321,7 +3373,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_51">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_52">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setUsername(user)</code></pre>
@@ -3332,13 +3384,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Function:CSK_FTPClient.setVerboseMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-function">setVerboseMode()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_53">Short description</h6>
+<h6 id="_short_description_54">Short description</h6>
 <div class="paragraph">
 <p>Function to configure verbose mode of FTP connection.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_33">Parameters</h6>
+<h6 id="_parameters_34">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3365,7 +3417,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_52">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_53">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FTPClient.setVerboseMode(status)</code></pre>
@@ -3379,13 +3431,13 @@ If TRUE it will send the content in its own thread, but other apps can further r
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnDataLoadedOnReboot"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnDataLoadedOnReboot</span></h5>
 <div class="sect5">
-<h6 id="_short_description_54">Short description</h6>
+<h6 id="_short_description_55">Short description</h6>
 <div class="paragraph">
 <p>Event to call if module tried to load parameters and should be ready.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_53">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_54">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnDataLoadedOnReboot</span>()
@@ -3400,7 +3452,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewIPCheck"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewIPCheck</span></h5>
 <div class="sect5">
-<h6 id="_short_description_55">Short description</h6>
+<h6 id="_short_description_56">Short description</h6>
 <div class="paragraph">
 <p>Notify if string has valid IP format (used for UI).</p>
 </div>
@@ -3433,7 +3485,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_54">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_55">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewIPCheck</span>(status)
@@ -3448,7 +3500,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewParameterName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewParameterName</span></h5>
 <div class="sect5">
-<h6 id="_short_description_56">Short description</h6>
+<h6 id="_short_description_57">Short description</h6>
 <div class="paragraph">
 <p>Notify name of persistent data parameter.</p>
 </div>
@@ -3481,7 +3533,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_55">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_56">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewParameterName</span>(name)
@@ -3496,7 +3548,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewPassiveModeStatus"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewPassiveModeStatus</span></h5>
 <div class="sect5">
-<h6 id="_short_description_57">Short description</h6>
+<h6 id="_short_description_58">Short description</h6>
 <div class="paragraph">
 <p>Notify passive mode status.</p>
 </div>
@@ -3529,7 +3581,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_56">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_57">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewPassiveModeStatus</span>(status)
@@ -3544,7 +3596,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewPassword"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewPassword</span></h5>
 <div class="sect5">
-<h6 id="_short_description_58">Short description</h6>
+<h6 id="_short_description_59">Short description</h6>
 <div class="paragraph">
 <p>Notify password.</p>
 </div>
@@ -3577,7 +3629,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_57">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_58">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewPassword</span>(password)
@@ -3592,7 +3644,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewPort"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewPort</span></h5>
 <div class="sect5">
-<h6 id="_short_description_59">Short description</h6>
+<h6 id="_short_description_60">Short description</h6>
 <div class="paragraph">
 <p>Notify FTP connection port.</p>
 </div>
@@ -3625,7 +3677,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_58">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_59">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewPort</span>(port)
@@ -3640,7 +3692,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewServerIP"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewServerIP</span></h5>
 <div class="sect5">
-<h6 id="_short_description_60">Short description</h6>
+<h6 id="_short_description_61">Short description</h6>
 <div class="paragraph">
 <p>Notify FTP server IP.</p>
 </div>
@@ -3673,7 +3725,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_59">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_60">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewServerIP</span>(serverIP)
@@ -3688,7 +3740,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusAsyncMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusAsyncMode</span></h5>
 <div class="sect5">
-<h6 id="_short_description_61">Short description</h6>
+<h6 id="_short_description_62">Short description</h6>
 <div class="paragraph">
 <p>Notify if asynchronous FTP transfer is used.</p>
 </div>
@@ -3721,7 +3773,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_60">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_61">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusAsyncMode</span>(status)
@@ -3736,7 +3788,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusAutoFilename"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusAutoFilename</span></h5>
 <div class="sect5">
-<h6 id="_short_description_62">Short description</h6>
+<h6 id="_short_description_63">Short description</h6>
 <div class="paragraph">
 <p>Notify if filename should be generated by timestamp.</p>
 </div>
@@ -3769,7 +3821,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_61">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_62">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusAutoFilename</span>(status)
@@ -3784,7 +3836,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusCABundlePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusCABundlePath</span></h5>
 <div class="sect5">
-<h6 id="_short_description_63">Short description</h6>
+<h6 id="_short_description_64">Short description</h6>
 <div class="paragraph">
 <p>Notify path to CA bundle file to use for SFTP connection.</p>
 </div>
@@ -3817,7 +3869,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_62">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_63">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusCABundlePath</span>(path)
@@ -3832,7 +3884,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusClearPrivateKeyPassword"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusClearPrivateKeyPassword</span></h5>
 <div class="sect5">
-<h6 id="_short_description_64">Short description</h6>
+<h6 id="_short_description_65">Short description</h6>
 <div class="paragraph">
 <p>Clear private key password within UI.</p>
 </div>
@@ -3865,7 +3917,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_63">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_64">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusClearPrivateKeyPassword</span>(empty)
@@ -3880,7 +3932,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusClientCertificatePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusClientCertificatePath</span></h5>
 <div class="sect5">
-<h6 id="_short_description_65">Short description</h6>
+<h6 id="_short_description_66">Short description</h6>
 <div class="paragraph">
 <p>Notify path to client certificate to use for FTPS connection.</p>
 </div>
@@ -3913,7 +3965,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_64">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_65">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusClientCertificatePath</span>(path)
@@ -3928,7 +3980,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusClientCertificatePrivateKeyFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusClientCertificatePrivateKeyFilePath</span></h5>
 <div class="sect5">
-<h6 id="_short_description_66">Short description</h6>
+<h6 id="_short_description_67">Short description</h6>
 <div class="paragraph">
 <p>Notify path to client certificate private key file.</p>
 </div>
@@ -3961,7 +4013,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_65">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_66">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusClientCertificatePrivateKeyFilePath</span>(path)
@@ -3976,7 +4028,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusConnected"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusConnected</span></h5>
 <div class="sect5">
-<h6 id="_short_description_67">Short description</h6>
+<h6 id="_short_description_68">Short description</h6>
 <div class="paragraph">
 <p>Notify FTP connection status.</p>
 </div>
@@ -4009,7 +4061,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_66">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_67">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusConnected</span>(status)
@@ -4024,7 +4076,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusCSKStyle"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusCSKStyle</span></h5>
 <div class="sect5">
-<h6 id="_short_description_68">Short description</h6>
+<h6 id="_short_description_69">Short description</h6>
 <div class="paragraph">
 <p>Notify UI style to use for CSK modules.</p>
 </div>
@@ -4057,7 +4109,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_67">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_68">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusCSKStyle</span>(theme)
@@ -4072,7 +4124,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusDataType"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusDataType</span></h5>
 <div class="sect5">
-<h6 id="_short_description_69">Short description</h6>
+<h6 id="_short_description_70">Short description</h6>
 <div class="paragraph">
 <p>Notify preset type of data for registered event.</p>
 </div>
@@ -4105,7 +4157,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_68">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_69">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusDataType</span>(dataType)
@@ -4120,7 +4172,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusFileTransferSuccess"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFileTransferSuccess</span></h5>
 <div class="sect5">
-<h6 id="_short_description_70">Short description</h6>
+<h6 id="_short_description_71">Short description</h6>
 <div class="paragraph">
 <p>Notify success status of file transfer.</p>
 </div>
@@ -4160,7 +4212,7 @@ Not supported in async mode.</p></td>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_69">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_70">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusFileTransferSuccess</span>(success, file)
@@ -4175,7 +4227,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusFlowConfigPriority"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFlowConfigPriority</span></h5>
 <div class="sect5">
-<h6 id="_short_description_71">Short description</h6>
+<h6 id="_short_description_72">Short description</h6>
 <div class="paragraph">
 <p>Notify if FlowConfig should have priority for FlowConfig relevant configurations.</p>
 </div>
@@ -4208,7 +4260,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_70">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_71">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusFlowConfigPriority</span>(status)
@@ -4223,7 +4275,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusFTPSSecurityProtocol"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusFTPSSecurityProtocol</span></h5>
 <div class="sect5">
-<h6 id="_short_description_72">Short description</h6>
+<h6 id="_short_description_73">Short description</h6>
 <div class="paragraph">
 <p>Notify mode of security protocol to use for FTPS connection.</p>
 </div>
@@ -4256,7 +4308,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_71">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_72">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusFTPSSecurityProtocol</span>(mode)
@@ -4269,15 +4321,63 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </div>
 </div>
 <div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusKeepAliveInterval"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusKeepAliveInterval</span></h5>
+<div class="sect5">
+<h6 id="_short_description_74">Short description</h6>
+<div class="paragraph">
+<p>Notify status of keep alive interval.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_19">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interval in seconds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_73">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusKeepAliveInterval</span>(interval)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusKeepAliveInterval</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusKeepAliveInterval</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusKnownHostFilePath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusKnownHostFilePath</span></h5>
 <div class="sect5">
-<h6 id="_short_description_73">Short description</h6>
+<h6 id="_short_description_75">Short description</h6>
 <div class="paragraph">
 <p>Notify path to known host file used for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_19">Callback arguments</h6>
+<h6 id="_callback_arguments_20">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4304,7 +4404,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_72">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_74">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusKnownHostFilePath</span>(path)
@@ -4319,109 +4419,13 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Event:CSK_FTPClient.OnNewStatusLoadParameterOnReboot"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusLoadParameterOnReboot</span></h5>
 <div class="sect5">
-<h6 id="_short_description_74">Short description</h6>
+<h6 id="_short_description_76">Short description</h6>
 <div class="paragraph">
 <p>Notify status if parameters should be loaded on app/device boot up.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_20">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_73">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusLoadParameterOnReboot</span>(status)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusLoadParameterOnReboot</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusLoadParameterOnReboot</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusMode</span></h5>
-<div class="sect5">
-<h6 id="_short_description_75">Short description</h6>
-<div class="paragraph">
-<p>Notify mode of FTP connection to use.</p>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_callback_arguments_21">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mode</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_74">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusMode</span>(mode)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusMode</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusMode</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusModuleIsActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusModuleIsActive</span></h5>
-<div class="sect5">
-<h6 id="_short_description_76">Short description</h6>
-<div class="paragraph">
-<p>Notify if module can be used on device.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_callback_arguments_22">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4451,25 +4455,25 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <h6 id="_sample_auto_generated_75">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusModuleIsActive</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusLoadParameterOnReboot</span>(status)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusModuleIsActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusModuleIsActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusLoadParameterOnReboot</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusLoadParameterOnReboot</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusModuleVersion"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusModuleVersion</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusMode</span></h5>
 <div class="sect5">
 <h6 id="_short_description_77">Short description</h6>
 <div class="paragraph">
-<p>Notify version of module.</p>
+<p>Notify mode of FTP connection to use.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_23">Callback arguments</h6>
+<h6 id="_callback_arguments_22">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4487,10 +4491,10 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mode</p></td>
 </tr>
 </tbody>
 </table>
@@ -4499,73 +4503,25 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <h6 id="_sample_auto_generated_76">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusModuleVersion</span>(version)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusMode</span>(mode)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusModuleVersion</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusModuleVersion</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusMode</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusMode</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusPathToLocalFile"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusPathToLocalFile</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusModuleIsActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusModuleIsActive</span></h5>
 <div class="sect5">
 <h6 id="_short_description_78">Short description</h6>
 <div class="paragraph">
-<p>Notify path to local file to send to FTP server.</p>
+<p>Notify if module can be used on device.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_24">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_77">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusPathToLocalFile</span>(path)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusPathToLocalFile</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusPathToLocalFile</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusPeerVerification"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusPeerVerification</span></h5>
-<div class="sect5">
-<h6 id="_short_description_79">Short description</h6>
-<div class="paragraph">
-<p>Notify status to use peer verification for FTPS connection.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_callback_arguments_25">Callback arguments</h6>
+<h6 id="_callback_arguments_23">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4592,124 +4548,76 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
+<h6 id="_sample_auto_generated_77">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusModuleIsActive</span>(status)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusModuleIsActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusModuleIsActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusModuleVersion"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusModuleVersion</span></h5>
+<div class="sect5">
+<h6 id="_short_description_79">Short description</h6>
+<div class="paragraph">
+<p>Notify version of module.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_24">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
 <h6 id="_sample_auto_generated_78">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusPeerVerification</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusModuleVersion</span>(version)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusPeerVerification</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusPeerVerification</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusModuleVersion</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusModuleVersion</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusRegisteredEventName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusRegisteredEventName</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusPathToLocalFile"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusPathToLocalFile</span></h5>
 <div class="sect5">
 <h6 id="_short_description_80">Short description</h6>
 <div class="paragraph">
-<p>Notify preset name of event to register for incoming data.</p>
+<p>Notify path to local file to send to FTP server.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_26">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">eventName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of event.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_79">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusRegisteredEventName</span>(eventName)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusRegisteredEventName</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusRegisteredEventName</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusRegistrationList"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusRegistrationList</span></h5>
-<div class="sect5">
-<h6 id="_short_description_81">Short description</h6>
-<div class="paragraph">
-<p>Notify JSON list of registered events incl. related type of data.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_callback_arguments_27">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of content.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_80">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusRegistrationList</span>(list)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusRegistrationList</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusRegistrationList</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusSFTPPrivateKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusSFTPPrivateKeyPath</span></h5>
-<div class="sect5">
-<h6 id="_short_description_82">Short description</h6>
-<div class="paragraph">
-<p>Notify path to private key file for SFTP connection.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_callback_arguments_28">Callback arguments</h6>
+<h6 id="_callback_arguments_25">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4736,24 +4644,168 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_81">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_79">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusSFTPPrivateKeyPath</span>(path)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusPathToLocalFile</span>(path)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusSFTPPrivateKeyPath</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusSFTPPrivateKeyPath</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusPathToLocalFile</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusPathToLocalFile</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusSFTPPublicKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusSFTPPublicKeyPath</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusPeerVerification"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusPeerVerification</span></h5>
+<div class="sect5">
+<h6 id="_short_description_81">Short description</h6>
+<div class="paragraph">
+<p>Notify status to use peer verification for FTPS connection.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_26">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_80">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusPeerVerification</span>(status)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusPeerVerification</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusPeerVerification</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusRegisteredEventName"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusRegisteredEventName</span></h5>
+<div class="sect5">
+<h6 id="_short_description_82">Short description</h6>
+<div class="paragraph">
+<p>Notify preset name of event to register for incoming data.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_27">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of event.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_81">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusRegisteredEventName</span>(eventName)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusRegisteredEventName</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusRegisteredEventName</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusRegistrationList"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusRegistrationList</span></h5>
 <div class="sect5">
 <h6 id="_short_description_83">Short description</h6>
 <div class="paragraph">
-<p>Notify path to public key for SFTP connection.</p>
+<p>Notify JSON list of registered events incl. related type of data.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_28">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of content.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_82">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusRegistrationList</span>(list)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusRegistrationList</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusRegistrationList</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusSFTPPrivateKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusSFTPPrivateKeyPath</span></h5>
+<div class="sect5">
+<h6 id="_short_description_84">Short description</h6>
+<div class="paragraph">
+<p>Notify path to private key file for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
@@ -4784,24 +4836,24 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_82">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_83">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusSFTPPublicKeyPath</span>(path)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusSFTPPrivateKeyPath</span>(path)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusSFTPPublicKeyPath</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusSFTPPublicKeyPath</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusSFTPPrivateKeyPath</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusSFTPPrivateKeyPath</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewStatusVerboseMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusVerboseMode</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusSFTPPublicKeyPath"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusSFTPPublicKeyPath</span></h5>
 <div class="sect5">
-<h6 id="_short_description_84">Short description</h6>
+<h6 id="_short_description_85">Short description</h6>
 <div class="paragraph">
-<p>Notify if FTP connection is running in verbose mode.</p>
+<p>Notify path to public key for SFTP connection.</p>
 </div>
 </div>
 <div class="sect5">
@@ -4823,58 +4875,10 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_sample_auto_generated_83">Sample (auto-generated)</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusVerboseMode</span>(status)
-  <span class="comment">-- Do something</span>
-<span class="keyword">end</span>
-
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusVerboseMode</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusVerboseMode</span><span class="delimiter">&quot;</span></span>)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnNewUsername"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewUsername</span></h5>
-<div class="sect5">
-<h6 id="_short_description_85">Short description</h6>
-<div class="paragraph">
-<p>Notify FTP username.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_callback_arguments_31">Callback arguments</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 37.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Multiplicity</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path</p></td>
 </tr>
 </tbody>
 </table>
@@ -4883,25 +4887,25 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <h6 id="_sample_auto_generated_84">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewUsername</span>(username)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusSFTPPublicKeyPath</span>(path)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewUsername</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewUsername</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusSFTPPublicKeyPath</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusSFTPPublicKeyPath</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnPersistentDataModuleAvailable"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnPersistentDataModuleAvailable</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewStatusVerboseMode"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewStatusVerboseMode</span></h5>
 <div class="sect5">
 <h6 id="_short_description_86">Short description</h6>
 <div class="paragraph">
-<p>Notify status if features of CSK_PersistentData module are available.</p>
+<p>Notify if FTP connection is running in verbose mode.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments_32">Callback arguments</h6>
+<h6 id="_callback_arguments_31">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4931,21 +4935,69 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <h6 id="_sample_auto_generated_85">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnPersistentDataModuleAvailable</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewStatusVerboseMode</span>(status)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnPersistentDataModuleAvailable</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnPersistentDataModuleAvailable</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewStatusVerboseMode</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewStatusVerboseMode</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnUserLevelAdminActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelAdminActive</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnNewUsername"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnNewUsername</span></h5>
 <div class="sect5">
 <h6 id="_short_description_87">Short description</h6>
 <div class="paragraph">
-<p>Status of Admin userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
+<p>Notify FTP username.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_32">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_86">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewUsername</span>(username)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnNewUsername</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewUsername</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnPersistentDataModuleAvailable"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnPersistentDataModuleAvailable</span></h5>
+<div class="sect5">
+<h6 id="_short_description_88">Short description</h6>
+<div class="paragraph">
+<p>Notify status if features of CSK_PersistentData module are available.</p>
 </div>
 </div>
 <div class="sect5">
@@ -4976,24 +5028,24 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_86">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_87">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelAdminActive</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnPersistentDataModuleAvailable</span>(status)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelAdminActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelAdminActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnPersistentDataModuleAvailable</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnPersistentDataModuleAvailable</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnUserLevelMaintenanceActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelMaintenanceActive</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnUserLevelAdminActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelAdminActive</span></h5>
 <div class="sect5">
-<h6 id="_short_description_88">Short description</h6>
+<h6 id="_short_description_89">Short description</h6>
 <div class="paragraph">
-<p>Status of Maintenance userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
+<p>Status of Admin userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
 </div>
 </div>
 <div class="sect5">
@@ -5024,24 +5076,24 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_87">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_88">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelMaintenanceActive</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelAdminActive</span>(status)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelMaintenanceActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelMaintenanceActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelAdminActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelAdminActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnUserLevelOperatorActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelOperatorActive</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnUserLevelMaintenanceActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelMaintenanceActive</span></h5>
 <div class="sect5">
-<h6 id="_short_description_89">Short description</h6>
+<h6 id="_short_description_90">Short description</h6>
 <div class="paragraph">
-<p>Status of Operator userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
+<p>Status of Maintenance userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
 </div>
 </div>
 <div class="sect5">
@@ -5072,24 +5124,24 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_88">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_89">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelOperatorActive</span>(status)
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelMaintenanceActive</span>(status)
   <span class="comment">-- Do something</span>
 <span class="keyword">end</span>
 
-Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelOperatorActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelOperatorActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelMaintenanceActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelMaintenanceActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="API:Event:CSK_FTPClient.OnUserLevelServiceActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelServiceActive</span></h5>
+<h5 id="API:Event:CSK_FTPClient.OnUserLevelOperatorActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelOperatorActive</span></h5>
 <div class="sect5">
-<h6 id="_short_description_90">Short description</h6>
+<h6 id="_short_description_91">Short description</h6>
 <div class="paragraph">
-<p>Status of Service userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
+<p>Status of Operator userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
 </div>
 </div>
 <div class="sect5">
@@ -5120,7 +5172,55 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_89">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_90">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelOperatorActive</span>(status)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FTPClient.OnUserLevelOperatorActive</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnUserLevelOperatorActive</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Event:CSK_FTPClient.OnUserLevelServiceActive"><span class="breadcrumb">CSK_FTPClient.</span><span class="api-event">OnUserLevelServiceActive</span></h5>
+<div class="sect5">
+<h6 id="_short_description_92">Short description</h6>
+<div class="paragraph">
+<p>Status of Service userlevel. Used internally in combination with the CSK_UserManagement module if available.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments_37">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_91">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnUserLevelServiceActive</span>(status)
@@ -5137,7 +5237,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect2">
 <h3 id="API:Crown:CSK_Module_FTPClient"><span class="api-crown">CSK_Module_FTPClient</span></h3>
 <div class="sect3">
-<h4 id="_short_description_91">Short description</h4>
+<h4 id="_short_description_93">Short description</h4>
 <div class="paragraph">
 <p>This is an automatically generated CROWN (description not necessary).</p>
 </div>
@@ -5150,7 +5250,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect2">
 <h3 id="API:Crown:FTPClient_FC"><span class="api-crown">FTPClient_FC</span></h3>
 <div class="sect3">
-<h4 id="_short_description_92">Short description</h4>
+<h4 id="_short_description_94">Short description</h4>
 <div class="paragraph">
 <p>Crown to provide CSK_FlowConfig relevant features.</p>
 </div>
@@ -5163,7 +5263,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect2">
 <h3 id="API:Crown:FTPClient_FC.Put"><span class="api-crown">FTPClient_FC.Put</span></h3>
 <div class="sect3">
-<h4 id="_short_description_93">Short description</h4>
+<h4 id="_short_description_95">Short description</h4>
 <div class="paragraph">
 <p>Set source of incoming data to put to FTP server.</p>
 </div>
@@ -5186,13 +5286,13 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Function:FTPClient_FC.Put.create"><span class="breadcrumb">FTPClient_FC.Put.</span><span class="api-function">create()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_94">Short description</h6>
+<h6 id="_short_description_96">Short description</h6>
 <div class="paragraph">
 <p>Internally used CSK_FlowConfig create function.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_34">Parameters</h6>
+<h6 id="_parameters_35">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -5304,7 +5404,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_90">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_92">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">handle = FTPClient_FC.Put.create(dataType1, dataType2, dataType3, dataType4, autoName1, autoName2, autoName3, autoName4)</code></pre>
@@ -5315,13 +5415,13 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Function:FTPClient_FC.Put.put"><span class="breadcrumb">FTPClient_FC.Put.</span><span class="api-function">put()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_95">Short description</h6>
+<h6 id="_short_description_97">Short description</h6>
 <div class="paragraph">
 <p>Set source of incoming data to put to FTP server.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_35">Parameters</h6>
+<h6 id="_parameters_36">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -5384,7 +5484,7 @@ Parameter:
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_91">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_93">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">FTPClient_FC.Put.put(handle, data1, data2, data3, data4)</code></pre>
@@ -5456,8 +5556,8 @@ Parameter:
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 4.2.0<br>
-Last updated 2026-01-29 15:44:03 +0100
+Version 4.3.0<br>
+Last updated 2026-07-09 11:38:31 +0200
 </div>
 </div>
 <script type="text/javascript">

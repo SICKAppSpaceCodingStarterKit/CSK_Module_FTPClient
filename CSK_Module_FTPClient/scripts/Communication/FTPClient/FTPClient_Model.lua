@@ -98,10 +98,29 @@ local function setupFTPClient()
 
   ftpClient_Model.ftpClient = FTPClient.create() -- Recreate FTP client
   ftpClient_Model.async:setFunction("FTPClient.put", ftpClient_Model.ftpClient)
+
+  if _G.availableAPIs.ethernet then
+    local ipCheck = ftpClient_Model.helperFuncs.isValidIPv4(ftpClient_Model.parameters.serverIP)
+    if not ipCheck then
+      local ip = Ethernet.resolveHostName(ftpClient_Model.parameters.serverIP)
+      if ip then
+        _G.logger:info("Resolved hostname " .. tostring(ftpClient_Model.parameters.serverIP) .. " to IP = " .. tostring(ip))
+        ftpClient_Model.ftpClient:setIpAddress(ip)
+      else
+        ftpClient_Model.ftpClient:setIpAddress(ftpClient_Model.parameters.serverIP)
+      end
+    else
+      ftpClient_Model.ftpClient:setIpAddress(ftpClient_Model.parameters.serverIP)
+    end
+  else
+    ftpClient_Model.ftpClient:setIpAddress(ftpClient_Model.parameters.serverIP)
+  end
+
   ftpClient_Model.ftpClient:setIpAddress(ftpClient_Model.parameters.serverIP)
   ftpClient_Model.ftpClient:setPort(ftpClient_Model.parameters.port)
   ftpClient_Model.ftpClient:setPassiveMode(ftpClient_Model.parameters.passiveMode)
   ftpClient_Model.ftpClient:setVerbose(ftpClient_Model.parameters.verboseMode)
+  ftpClient_Model.ftpClient:setKeepAliveInterval(ftpClient_Model.parameters.keepAliveInterval)
 
   if ftpClient_Model.parameters.mode == 'SFTP' then
     ftpClient_Model.ftpClient:setSecurityProtocol('SFTP')
@@ -166,6 +185,10 @@ local function putFile(localSource, destination)
     if File.exists(localSource) then
       local putSuccess = false
       if destination then
+        local filePath = destination:match(".*()/")
+        if filePath then
+          ftpClient_Model.ftpClient:mkdir(string.sub(destination, 1, filePath-1 ))
+        end
         putSuccess = ftpClient_Model.ftpClient:putFile(destination, localSource)
       else
         local foundPos = nil
@@ -199,6 +222,11 @@ ftpClient_Model.putFile = putFile
 local function sendData(data, filename)
   if ftpClient_Model.ftpClient:isConnected() then
     _G.logger:fine(nameOfModule .. ": Try to send data")
+
+    local filePath = filename:match(".*()/")
+    if filePath then
+      ftpClient_Model.ftpClient:mkdir(string.sub(filename, 1, filePath-1 ))
+    end
 
     if ftpClient_Model.parameters.asyncMode then --> Asynchronous image transfer
       ftpClient_Model.async:launch(filename, data)
@@ -249,6 +277,12 @@ end
 local function sendImage(img, filename)
   if ftpClient_Model.ftpClient:isConnected() then
     _G.logger:fine(nameOfModule .. ": Try to send image")
+
+    local filePath = filename:match(".*()/")
+    if filePath then
+      ftpClient_Model.ftpClient:mkdir(string.sub(filename, 1, filePath-1 ))
+    end
+
     if _G.availableAPIs.imageSpecific then
       local compImg = ftpClient_Model.formatter:encode(img)
 

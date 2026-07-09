@@ -38,6 +38,7 @@ local function getParameters()
   ftpClientParameters.passiveMode = true -- FTP passive mode
   ftpClientParameters.asyncMode = false -- asyncMode
   ftpClientParameters.verboseMode = false -- verbose Mode of FTP connection
+  ftpClientParameters.keepAliveInterval = 0 -- Interval in seconds to send keep alive commands to FTP server
 
   ftpClientParameters.registeredEvents = {} -- Events to listen for incoming data to store on FTP server
   -- Sample of data content of entries within the "registeredEvents"
