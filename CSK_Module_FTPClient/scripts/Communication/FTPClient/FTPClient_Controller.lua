@@ -27,6 +27,8 @@ Script.serveEvent('CSK_FTPClient.OnNewStatusModuleIsActive', 'FTPClient_OnNewSta
 Script.serveEvent("CSK_FTPClient.OnNewServerIP", "FTPClient_OnNewServerIP")
 Script.serveEvent("CSK_FTPClient.OnNewPort", "FTPClient_OnNewPort")
 Script.serveEvent("CSK_FTPClient.OnNewStatusConnected", "FTPClient_OnNewStatusConnected")
+Script.serveEvent('CSK_FTPClient.OnNewStatusInterface', 'FTPClient_OnNewStatusInterface')
+Script.serveEvent('CSK_FTPClient.OnNewStatusListOfInterfaces', 'FTPClient_OnNewStatusListOfInterfaces')
 Script.serveEvent("CSK_FTPClient.OnNewUsername", "FTPClient_OnNewUsername")
 Script.serveEvent("CSK_FTPClient.OnNewPassword", "FTPClient_OnNewPassword")
 Script.serveEvent("CSK_FTPClient.OnNewPassiveModeStatus", "FTPClient_OnNewPassiveModeStatus")
@@ -163,6 +165,10 @@ local function handleOnExpiredTmrFTPClient()
 
   Script.notifyEvent('FTPClient_OnNewServerIP', ftpClient_Model.parameters.serverIP)
   Script.notifyEvent('FTPClient_OnNewPort', ftpClient_Model.parameters.port)
+
+  Script.notifyEvent('FTPClient_OnNewStatusListOfInterfaces', ftpClient_Model.interfaces)
+  Script.notifyEvent('FTPClient_OnNewStatusInterface', ftpClient_Model.parameters.interface)
+
   Script.notifyEvent('FTPClient_OnNewUsername', ftpClient_Model.parameters.user)
   Script.notifyEvent('FTPClient_OnNewPassword', ftpClient_Model.parameters.password)
   Script.notifyEvent('FTPClient_OnNewPassiveModeStatus', ftpClient_Model.parameters.passiveMode)
@@ -209,6 +215,9 @@ Script.serveFunction("CSK_FTPClient.pageCalled", pageCalled)
 
 local function connectFTPClient()
   ftpClient_Model.setupFTPClient()
+  if ftpClient_Model.parameters.interface ~= '' then
+    ftpClient_Model.ftpClient:setInterface(ftpClient_Model.parameters.interface)
+  end
 
   local success = ftpClient_Model.ftpClient:connect(ftpClient_Model.parameters.user, ftpClient_Model.parameters.password)
   if success then
@@ -256,6 +265,12 @@ local function setFTPPort(port)
   ftpClient_Model.parameters.port = port
 end
 Script.serveFunction("CSK_FTPClient.setFTPPort", setFTPPort)
+
+local function setInterface(interface)
+  _G.logger:fine(nameOfModule .. ': Set FTP interface to: ' .. tostring(interface))
+  ftpClient_Model.parameters.interface = interface
+end
+Script.serveFunction('CSK_FTPClient.setInterface', setInterface)
 
 local function getFTPPort()
   return ftpClient_Model.parameters.port

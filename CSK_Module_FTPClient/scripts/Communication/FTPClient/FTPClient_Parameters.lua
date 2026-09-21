@@ -17,6 +17,7 @@ local function getParameters()
   ftpClientParameters.isConnected = false -- Status if FTP connection should be established
   ftpClientParameters.mode = 'FTP' -- FTP / SFTP / FTPS -- Mode of FTP connection
   ftpClientParameters.port = 21 -- FTP + FTPS_EXPLICIT = 21 / FTPS_IMPLICIT = 990 / SFTP = 22
+  ftpClientParameters.interface = '' -- Interface to use for connection
 
   ftpClientParameters.privateKeyPathSFTP = '' -- Path to private key for SFTP connection
   ftpClientParameters.privateKeyPasswordSFTP = '' -- Optional passphrase of private key

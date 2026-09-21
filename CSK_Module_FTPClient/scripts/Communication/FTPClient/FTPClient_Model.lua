@@ -52,9 +52,21 @@ ftpClient_Model.sourceFilePath = '/public/Data.file' -- Source to local file to 
 ftpClient_Model.styleForUI = 'None' -- Optional parameter to set UI style
 ftpClient_Model.version = Engine.getCurrentAppVersion() -- Version of module
 
+local interfaceList = {}
+if _G.availableAPIs.ethernet then
+  interfaceList = Ethernet.Interface.getInterfaces()
+end
+if #interfaceList == 0 then
+  table.insert(interfaceList, '')
+end
+ftpClient_Model.interfaces = ftpClient_Model.helperFuncs.createStringListFromList(interfaceList)
+
 -- Parameters to be saved permanently if wanted
 ftpClient_Model.parameters = {}
 ftpClient_Model.parameters = ftpClient_Model.helperFuncs.defaultParameters.getParameters() -- Load default parameters
+
+-- Set specific parameter
+ftpClient_Model.parameters.interface = interfaceList[1]
 
 --**************************************************************************
 --********************** End Global Scope **********************************

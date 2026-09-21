@@ -51,6 +51,7 @@ end
 -- Function to load specific Ethernet APIs
 local function loadEthernetAPIs()
   Ethernet = require 'API.Ethernet'
+  Ethernet.Interface = require 'API.Ethernet.Interface'
 end
 
 availableAPIs.default = xpcall(loadAPIs, debug.traceback) -- TRUE if all default APIs were loaded correctly
