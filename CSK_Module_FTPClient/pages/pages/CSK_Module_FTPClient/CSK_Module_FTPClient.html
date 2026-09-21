@@ -39,19 +39,17 @@
                                                         style="align-items: stretch; flex-grow: 2">
                                                         <davinci-text-field id="TF_ParameterName" type="text"
                                                             title="Name of the parameters within the CSK_PersistentData module to be uses for this module.">
-                                                            <crown-edpws-binding property="value"
-                                                                name="CSK_FTPClient/OnNewParameterName"
-                                                                update-on-resume>
-                                                            </crown-edpws-binding>
-                                                            <crown-binding event="change"
-                                                                name="CSK_FTPClient/setParameterName"
-                                                                path="param/args/name" auto-commit>
-                                                            </crown-binding>
-                                                            <crown-edpws-binding property="disabled"
-                                                                name="CSK_FTPClient/OnPersistentDataModuleAvailable"
-                                                                update-on-resume
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewParameterName">
+                                                            </crown-on>
+                                                            <crown-set event="change"
+                                                                crown-function="CSK_FTPClient/setParameterName"
+                                                                protocol="crownMSGPACK" crown-path="name">
+                                                            </crown-set>
+                                                            <crown-on property="disabled"
+                                                                crown-event="CSK_FTPClient/OnPersistentDataModuleAvailable"
                                                                 converter="function(value) {return !value;}">
-                                                            </crown-edpws-binding>
+                                                            </crown-on>
                                                         </davinci-text-field>
                                                     </layout-column>
                                                     <layout-column id="Column_PersistentDatax"
@@ -69,15 +67,14 @@
                                                                         <davinci-icon icon="action/history">
                                                                         </davinci-icon>
                                                                         <span></span>
-                                                                        <crown-binding event="submit"
-                                                                            name="CSK_FTPClient/loadParameters"
-                                                                            auto-commit>
-                                                                        </crown-binding>
-                                                                        <crown-edpws-binding property="disabled"
-                                                                            name="CSK_FTPClient/OnPersistentDataModuleAvailable"
-                                                                            update-on-resume
+                                                                        <crown-set event="submit"
+                                                                            crown-function="CSK_FTPClient/loadParameters"
+                                                                            protocol="crownMSGPACK">
+                                                                        </crown-set>
+                                                                        <crown-on property="disabled"
+                                                                            crown-event="CSK_FTPClient/OnPersistentDataModuleAvailable"
                                                                             converter="function(value) {return !value;}">
-                                                                        </crown-edpws-binding>
+                                                                        </crown-on>
                                                                     </davinci-button>
                                                                     <davinci-button id="B_SaveConfig"
                                                                         class="myCustomButton_CSK_Module_FTPClient"
@@ -86,15 +83,14 @@
                                                                         <davinci-icon icon="content/save">
                                                                         </davinci-icon>
                                                                         <span></span>
-                                                                        <crown-binding event="submit"
-                                                                            name="CSK_FTPClient/sendParameters"
-                                                                            auto-commit>
-                                                                        </crown-binding>
-                                                                        <crown-edpws-binding property="disabled"
-                                                                            name="CSK_FTPClient/OnPersistentDataModuleAvailable"
-                                                                            update-on-resume
+                                                                        <crown-set event="submit"
+                                                                            crown-function="CSK_FTPClient/sendParameters"
+                                                                            protocol="crownMSGPACK">
+                                                                        </crown-set>
+                                                                        <crown-on property="disabled"
+                                                                            crown-event="CSK_FTPClient/OnPersistentDataModuleAvailable"
                                                                             converter="function(value) {return !value;}">
-                                                                        </crown-edpws-binding>
+                                                                        </crown-on>
                                                                     </davinci-button>
                                                                 </layout-row>
                                                             </layout-column>
@@ -127,22 +123,18 @@
                                                                                 <davinci-checkbox id="CB_LoadConfig"
                                                                                     title="Load configured parameters from CSK_PersistentData on app start.">
                                                                                     <span></span>
-                                                                                    <crown-edpws-binding
-                                                                                        property="checked"
-                                                                                        name="CSK_FTPClient/OnNewStatusLoadParameterOnReboot"
-                                                                                        update-on-resume>
-                                                                                    </crown-edpws-binding>
-                                                                                    <crown-binding event="change"
-                                                                                        name="CSK_FTPClient/setLoadOnReboot"
-                                                                                        path="param/args/status"
-                                                                                        auto-commit>
-                                                                                    </crown-binding>
-                                                                                    <crown-edpws-binding
-                                                                                        property="disabled"
-                                                                                        name="CSK_FTPClient/OnPersistentDataModuleAvailable"
-                                                                                        update-on-resume
+                                                                                    <crown-on property="checked"
+                                                                                        crown-event="CSK_FTPClient/OnNewStatusLoadParameterOnReboot">
+                                                                                    </crown-on>
+                                                                                    <crown-set event="change"
+                                                                                        crown-function="CSK_FTPClient/setLoadOnReboot"
+                                                                                        protocol="crownMSGPACK"
+                                                                                        crown-path="status">
+                                                                                    </crown-set>
+                                                                                    <crown-on property="disabled"
+                                                                                        crown-event="CSK_FTPClient/OnPersistentDataModuleAvailable"
                                                                                         converter="function(value) {return !value;}">
-                                                                                    </crown-edpws-binding>
+                                                                                    </crown-on>
                                                                                 </davinci-checkbox>
                                                                             </layout-row>
                                                                         </layout-column>
@@ -158,16 +150,14 @@
                                                                                 <davinci-checkbox id="CB_FlowConfigPrio"
                                                                                     title="FlowConfig priority for FlowConfig relevant configurations.">
                                                                                     <span></span>
-                                                                                    <crown-edpws-binding
-                                                                                        property="checked"
-                                                                                        name="CSK_FTPClient/OnNewStatusFlowConfigPriority"
-                                                                                        update-on-resume>
-                                                                                    </crown-edpws-binding>
-                                                                                    <crown-binding event="change"
-                                                                                        name="CSK_FTPClient/setFlowConfigPriority"
-                                                                                        path="param/args/status"
-                                                                                        auto-commit>
-                                                                                    </crown-binding>
+                                                                                    <crown-on property="checked"
+                                                                                        crown-event="CSK_FTPClient/OnNewStatusFlowConfigPriority">
+                                                                                    </crown-on>
+                                                                                    <crown-set event="change"
+                                                                                        crown-function="CSK_FTPClient/setFlowConfigPriority"
+                                                                                        protocol="crownMSGPACK"
+                                                                                        crown-path="status">
+                                                                                    </crown-set>
                                                                                 </davinci-checkbox>
                                                                             </layout-row>
                                                                         </layout-column>
@@ -206,51 +196,73 @@
                                                 </davinci-value-display>
                                                 <davinci-text-field id="TF_ServerIP" type="text"
                                                     title="IP or hostname of server">
-                                                    <crown-edpws-binding property="value"
-                                                        name="CSK_FTPClient/OnNewServerIP" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-edpws-binding property="error"
-                                                        name="CSK_FTPClient/OnNewIPCheck" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setFTPServerIP"
-                                                        path="param/args/ip" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="value"
+                                                        crown-event="CSK_FTPClient/OnNewServerIP">
+                                                    </crown-on>
+                                                    <crown-on property="error" crown-event="CSK_FTPClient/OnNewIPCheck">
+                                                    </crown-on>
+                                                    <crown-set event="change"
+                                                        crown-function="CSK_FTPClient/setFTPServerIP"
+                                                        protocol="crownMSGPACK" crown-path="ip">
+                                                    </crown-set>
                                                 </davinci-text-field>
                                             </layout-column>
                                             <layout-column id="ColumnLayout4" style="align-items: stretch">
-                                                <davinci-value-display id="VD_Port" value="Port">
-                                                </davinci-value-display>
-                                                <davinci-numeric-field id="NF_Port" type="outline" min="1" max="60000"
-                                                    ticks="1" group-separator="," decimal-separator="."
-                                                    format-pattern="0">
-                                                    <crown-edpws-binding property="value" name="CSK_FTPClient/OnNewPort"
-                                                        update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setFTPPort"
-                                                        path="param/args/port" auto-commit>
-                                                    </crown-binding>
-                                                </davinci-numeric-field>
+                                                <layout-row id="RowLayout43">
+                                                    <layout-column id="ColumnLayout22" style="align-items: stretch">
+                                                        <davinci-value-display id="VD_Port" value="Port">
+                                                        </davinci-value-display>
+                                                        <davinci-numeric-field id="NF_Port" type="outline" min="1"
+                                                            max="60000" ticks="1" group-separator=","
+                                                            decimal-separator="." format-pattern="0">
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewPort">
+                                                            </crown-on>
+                                                            <crown-set event="change"
+                                                                crown-function="CSK_FTPClient/setFTPPort"
+                                                                protocol="crownMSGPACK" crown-path="port">
+                                                            </crown-set>
+                                                        </davinci-numeric-field>
+                                                    </layout-column>
+                                                    <layout-column id="ColumnLayout54" style="align-items: stretch">
+                                                        <davinci-value-display id="VD_Interface" value="Interface">
+                                                        </davinci-value-display>
+                                                        <davinci-drop-down id="DD_Interfaces">
+                                                            <crown-on property="data"
+                                                                crown-event="CSK_FTPClient/OnNewStatusListOfInterfaces"
+                                                                converter="convertToList">
+                                                            </crown-on>
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewStatusInterface">
+                                                            </crown-on>
+                                                            <crown-set event="change"
+                                                                crown-function="CSK_FTPClient/setInterface"
+                                                                protocol="crownMSGPACK" crown-path="interface">
+                                                            </crown-set>
+                                                        </davinci-drop-down>
+                                                    </layout-column>
+                                                </layout-row>
                                             </layout-column>
                                         </layout-row>
                                         <layout-row id="RowLayout10" style="justify-content: space-between">
                                             <layout-column id="ColumnLayout7" style="align-items: stretch">
                                                 <davinci-text-field id="TF_Username" type="text" label="Username">
-                                                    <crown-edpws-binding property="value"
-                                                        name="CSK_FTPClient/OnNewUsername" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setUsername"
-                                                        path="param/args/user" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="value"
+                                                        crown-event="CSK_FTPClient/OnNewUsername">
+                                                    </crown-on>
+                                                    <crown-set event="change" crown-function="CSK_FTPClient/setUsername"
+                                                        protocol="crownMSGPACK" crown-path="user">
+                                                    </crown-set>
                                                 </davinci-text-field>
                                             </layout-column>
                                             <layout-column id="ColumnLayout10" style="align-items: stretch">
                                                 <davinci-text-field id="TF_Password" type="password" label="Password">
-                                                    <crown-edpws-binding property="value"
-                                                        name="CSK_FTPClient/OnNewPassword" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setPassword"
-                                                        path="param/args/password" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="value"
+                                                        crown-event="CSK_FTPClient/OnNewPassword">
+                                                    </crown-on>
+                                                    <crown-set event="change" crown-function="CSK_FTPClient/setPassword"
+                                                        protocol="crownMSGPACK" crown-path="password">
+                                                    </crown-set>
                                                 </davinci-text-field>
                                             </layout-column>
                                         </layout-row>
@@ -272,12 +284,12 @@
                                                     <davinci-option id="Option_FTPS" value="FTPS">
                                                         <span>FTPS</span>
                                                     </davinci-option>
-                                                    <crown-edpws-binding property="value"
-                                                        name="CSK_FTPClient/OnNewStatusMode" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setFTPMode"
-                                                        path="param/args/mode" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="value"
+                                                        crown-event="CSK_FTPClient/OnNewStatusMode">
+                                                    </crown-on>
+                                                    <crown-set event="change" crown-function="CSK_FTPClient/setFTPMode"
+                                                        protocol="crownMSGPACK" crown-path="mode">
+                                                    </crown-set>
                                                 </davinci-drop-down>
                                             </layout-column>
                                             <layout-column id="ColumnLayout32" style="align-items: stretch">
@@ -298,14 +310,13 @@
                                                                 style="align-items: stretch">
                                                                 <davinci-text-field id="TF_FTPS_PrivateKey" type="text"
                                                                     placeholder="Path to private key">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusSFTPPrivateKeyPath"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setSFTPPrivateKeyPath"
-                                                                        path="param/args/path" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusSFTPPrivateKeyPath">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setSFTPPrivateKeyPath"
+                                                                        protocol="crownMSGPACK" crown-path="path">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -323,10 +334,10 @@
                                                                     <crown-on property="value"
                                                                         crown-event="CSK_FTPClient/OnNewStatusClearPrivateKeyPassword">
                                                                     </crown-on>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setSFTPPrivateKeyPassword"
-                                                                        path="param/args/password" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setSFTPPrivateKeyPassword"
+                                                                        protocol="crownMSGPACK" crown-path="password">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -341,14 +352,13 @@
                                                                 style="align-items: stretch">
                                                                 <davinci-text-field id="TF_SFTP_PublicKeyPath"
                                                                     type="text" placeholder="Path to public key">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusSFTPPublicKeyPath"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setSFTPPublicKeyPath"
-                                                                        path="param/args/path" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusSFTPPublicKeyPath">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setSFTPPublicKeyPath"
+                                                                        protocol="crownMSGPACK" crown-path="path">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -363,14 +373,13 @@
                                                                 style="align-items: stretch">
                                                                 <davinci-text-field id="TF_KnownHostFile" type="text"
                                                                     placeholder="Path to known host file">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusKnownHostFilePath"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setKnownHostFilePath"
-                                                                        path="param/args/path" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusKnownHostFilePath">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setKnownHostFilePath"
+                                                                        protocol="crownMSGPACK" crown-path="path">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -398,14 +407,13 @@
                                                                         value="FTPS_IMPLICIT">
                                                                         <span>FTPS_IMPLICIT</span>
                                                                     </davinci-option>
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusFTPSSecurityProtocol"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setFTPSSecurityProtolMode"
-                                                                        path="param/args/mode" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusFTPSSecurityProtocol">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setFTPSSecurityProtolMode"
+                                                                        protocol="crownMSGPACK" crown-path="mode">
+                                                                    </crown-set>
                                                                 </davinci-drop-down>
                                                             </layout-column>
                                                         </layout-row>
@@ -421,10 +429,9 @@
                                                                 <davinci-text-field id="TF_ClientCertificatePath"
                                                                     type="text"
                                                                     placeholder="Path to client certificate">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusClientCertificatePath"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusClientCertificatePath">
+                                                                    </crown-on>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -441,14 +448,13 @@
                                                                 <davinci-text-field id="TF_ClientCertificatePrivateKey"
                                                                     type="text"
                                                                     placeholder="Path to private key file of client certificate">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusClientCertificatePrivateKeyFilePath"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setClientCertificatePrivateKeyPath"
-                                                                        path="param/args/path" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusClientCertificatePrivateKeyFilePath">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setClientCertificatePrivateKeyPath"
+                                                                        protocol="crownMSGPACK" crown-path="path">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -464,14 +470,13 @@
                                                                 style="align-items: stretch">
                                                                 <davinci-text-field id="TF_FTPS_PrivateKeyPassword"
                                                                     type="text" placeholder="Password of private key">
-                                                                    <crown-edpws-binding property="value"
-                                                                        name="CSK_FTPClient/OnNewStatusClearPrivateKeyPassword"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setClientCertificatePrivateKeyPassword"
-                                                                        path="param/args/password" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="value"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusClearPrivateKeyPassword">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setClientCertificatePrivateKeyPassword"
+                                                                        protocol="crownMSGPACK" crown-path="password">
+                                                                    </crown-set>
                                                                 </davinci-text-field>
                                                             </layout-column>
                                                         </layout-row>
@@ -485,14 +490,13 @@
                                                             <layout-column id="ColumnLayout51"
                                                                 style="align-items: flex-end">
                                                                 <davinci-toggle-switch id="TS_PeerVerification">
-                                                                    <crown-edpws-binding property="checked"
-                                                                        name="CSK_FTPClient/OnNewStatusPeerVerification"
-                                                                        update-on-resume>
-                                                                    </crown-edpws-binding>
-                                                                    <crown-binding event="change"
-                                                                        name="CSK_FTPClient/setPeerVerificationStatus"
-                                                                        path="param/args/status" auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-on property="checked"
+                                                                        crown-event="CSK_FTPClient/OnNewStatusPeerVerification">
+                                                                    </crown-on>
+                                                                    <crown-set event="change"
+                                                                        crown-function="CSK_FTPClient/setPeerVerificationStatus"
+                                                                        protocol="crownMSGPACK" crown-path="status">
+                                                                    </crown-set>
                                                                 </davinci-toggle-switch>
                                                             </layout-column>
                                                         </layout-row>
@@ -500,9 +504,8 @@
                                                 </layout-row>
                                             </stacked-pane>
                                             <stacked-pane id="SP_FTP" value="FTP"></stacked-pane>
-                                            <crown-edpws-binding property="value" name="CSK_FTPClient/OnNewStatusMode"
-                                                update-on-resume>
-                                            </crown-edpws-binding>
+                                            <crown-on property="value" crown-event="CSK_FTPClient/OnNewStatusMode">
+                                            </crown-on>
                                         </stacked-view>
                                         <layout-row id="RowLayout30" class="myCustomSpacerVert10_CSK_Module_FTPClient"
                                             style="flex-grow: 0; flex-shrink: 0">
@@ -523,49 +526,51 @@
                                                     max="99999" ticks="1" group-separator="," decimal-separator="."
                                                     format-pattern="0"
                                                     title="Set intervall to send keep alive commands to FTP server. Set to 0 to disable.">
-                                                    <crown-edpws-binding property="value"
-                                                        name="CSK_FTPClient/OnNewStatusKeepAliveInterval"
-                                                        update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change"
-                                                        name="CSK_FTPClient/setKeepAliveInterval"
-                                                        path="param/args/interval" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="value"
+                                                        crown-event="CSK_FTPClient/OnNewStatusKeepAliveInterval">
+                                                    </crown-on>
+                                                    <crown-set event="change"
+                                                        crown-function="CSK_FTPClient/setKeepAliveInterval"
+                                                        protocol="crownMSGPACK" crown-path="interval">
+                                                    </crown-set>
                                                 </davinci-numeric-field>
                                             </layout-column>
                                             <layout-column id="ColumnLayout20">
                                                 <davinci-checkbox id="CB_PassiveMode"
                                                     title="Status will be used with next connection.">
                                                     <span>FTP Passive Mode</span>
-                                                    <crown-edpws-binding property="checked"
-                                                        name="CSK_FTPClient/OnNewPassiveModeStatus" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setPassiveMode"
-                                                        path="param/args/status" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="checked"
+                                                        crown-event="CSK_FTPClient/OnNewPassiveModeStatus">
+                                                    </crown-on>
+                                                    <crown-set event="change"
+                                                        crown-function="CSK_FTPClient/setPassiveMode"
+                                                        protocol="crownMSGPACK" crown-path="status">
+                                                    </crown-set>
                                                 </davinci-checkbox>
                                             </layout-column>
                                             <layout-column id="ColumnLayout21">
                                                 <davinci-checkbox id="CB_AsyncMode">
                                                     <span>Asynchronous mode:</span>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setAsyncMode"
-                                                        path="param/args/status" auto-commit>
-                                                    </crown-binding>
-                                                    <crown-edpws-binding property="checked"
-                                                        name="CSK_FTPClient/OnNewStatusAsyncMode" update-on-resume>
-                                                    </crown-edpws-binding>
+                                                    <crown-set event="change"
+                                                        crown-function="CSK_FTPClient/setAsyncMode"
+                                                        protocol="crownMSGPACK" crown-path="status">
+                                                    </crown-set>
+                                                    <crown-on property="checked"
+                                                        crown-event="CSK_FTPClient/OnNewStatusAsyncMode">
+                                                    </crown-on>
                                                 </davinci-checkbox>
                                             </layout-column>
                                             <layout-column id="ColumnLayout23">
                                                 <davinci-checkbox id="CB_VerboseMode"
                                                     title="Status will be used with next connection.">
                                                     <span>Verbose Mode</span>
-                                                    <crown-edpws-binding property="checked"
-                                                        name="CSK_FTPClient/OnNewStatusVerboseMode" update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="change" name="CSK_FTPClient/setVerboseMode"
-                                                        path="param/args/status" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="checked"
+                                                        crown-event="CSK_FTPClient/OnNewStatusVerboseMode">
+                                                    </crown-on>
+                                                    <crown-set event="change"
+                                                        crown-function="CSK_FTPClient/setVerboseMode"
+                                                        protocol="crownMSGPACK" crown-path="status">
+                                                    </crown-set>
                                                 </davinci-checkbox>
                                             </layout-column>
                                         </layout-row>
@@ -583,10 +588,10 @@
                                                                     type="accent" title="Disconnect">
                                                                     <davinci-icon icon="av/stop"></davinci-icon>
                                                                     <span>Disconnect</span>
-                                                                    <crown-binding event="submit"
-                                                                        name="CSK_FTPClient/disconnectFTPClient"
-                                                                        auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-set event="submit"
+                                                                        crown-function="CSK_FTPClient/disconnectFTPClient"
+                                                                        protocol="crownMSGPACK">
+                                                                    </crown-set>
                                                                 </davinci-button>
                                                             </stacked-pane>
                                                             <stacked-pane id="SP_Disconnected" value="false">
@@ -595,26 +600,24 @@
                                                                     type="outline" title="Connect">
                                                                     <davinci-icon icon="av/play_arrow"></davinci-icon>
                                                                     <span>Connect</span>
-                                                                    <crown-binding event="submit"
-                                                                        name="CSK_FTPClient/connectFTPClient"
-                                                                        auto-commit>
-                                                                    </crown-binding>
+                                                                    <crown-set event="submit"
+                                                                        crown-function="CSK_FTPClient/connectFTPClient"
+                                                                        protocol="crownMSGPACK">
+                                                                    </crown-set>
                                                                 </davinci-button>
                                                             </stacked-pane>
-                                                            <crown-edpws-binding property="value"
-                                                                name="CSK_FTPClient/OnNewStatusConnected"
-                                                                update-on-resume
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewStatusConnected"
                                                                 converter="function(value) {return value.toString();}">
-                                                            </crown-edpws-binding>
+                                                            </crown-on>
                                                         </stacked-view>
                                                     </layout-column>
                                                     <layout-column id="ColumnLayout19" style="align-items: stretch">
                                                         <davinci-status-indicator id="SI_ConnectionStatus">
                                                             <span>Current Status</span>
-                                                            <crown-edpws-binding property="status"
-                                                                name="CSK_FTPClient/OnNewStatusConnected"
-                                                                update-on-resume>
-                                                            </crown-edpws-binding>
+                                                            <crown-on property="status"
+                                                                crown-event="CSK_FTPClient/OnNewStatusConnected">
+                                                            </crown-on>
                                                         </davinci-status-indicator>
                                                     </layout-column>
                                                 </layout-row>
@@ -636,14 +639,13 @@
                                                         style="align-items: stretch; flex-grow: 3">
                                                         <davinci-text-field id="TF_FiletoSend" type="text"
                                                             label="Source file">
-                                                            <crown-edpws-binding property="value"
-                                                                name="CSK_FTPClient/OnNewStatusPathToLocalFile"
-                                                                update-on-resume>
-                                                            </crown-edpws-binding>
-                                                            <crown-binding event="change"
-                                                                name="CSK_FTPClient/setLocalPath" path="param/args/path"
-                                                                auto-commit>
-                                                            </crown-binding>
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewStatusPathToLocalFile">
+                                                            </crown-on>
+                                                            <crown-set event="change"
+                                                                crown-function="CSK_FTPClient/setLocalPath"
+                                                                protocol="crownMSGPACK" crown-path="path">
+                                                            </crown-set>
                                                         </davinci-text-field>
                                                     </layout-column>
                                                     <layout-column id="ColumnLayout30" style="align-items: center">
@@ -653,9 +655,10 @@
                                                             <davinci-icon icon="content/send">
                                                             </davinci-icon>
                                                             <span></span>
-                                                            <crown-binding event="submit"
-                                                                name="CSK_FTPClient/putFileViaUI" auto-commit>
-                                                            </crown-binding>
+                                                            <crown-set event="submit"
+                                                                crown-function="CSK_FTPClient/putFileViaUI"
+                                                                protocol="crownMSGPACK">
+                                                            </crown-set>
                                                         </davinci-button>
                                                     </layout-column>
                                                 </layout-row>
@@ -673,24 +676,23 @@
                                                 </davinci-value-display>
                                                 <curie-callout id="DC_FlowConfigInfo" type="info"
                                                     value="FlowConfig priority active.">
-                                                    <crown-edpws-binding property="hidden"
-                                                        name="CSK_FTPClient/OnNewStatusFlowConfigPriority"
-                                                        update-on-resume converter="function(value) {return !value;}">
-                                                    </crown-edpws-binding>
+                                                    <crown-on property="hidden"
+                                                        crown-event="CSK_FTPClient/OnNewStatusFlowConfigPriority"
+                                                        converter="function(value) {return !value;}">
+                                                    </crown-on>
                                                 </curie-callout>
                                                 <layout-row id="RowLayout5" style="align-items: center">
                                                     <layout-column id="ColumnLayout8"
                                                         style="align-items: stretch; flex-grow: 2">
                                                         <davinci-text-field id="TF_Eventname" type="text"
                                                             label="Event name">
-                                                            <crown-edpws-binding property="value"
-                                                                name="CSK_FTPClient/OnNewStatusRegisteredEventName"
-                                                                update-on-resume>
-                                                            </crown-edpws-binding>
-                                                            <crown-binding event="change"
-                                                                name="CSK_FTPClient/setRegistereEventName"
-                                                                path="param/args/name" auto-commit>
-                                                            </crown-binding>
+                                                            <crown-on property="value"
+                                                                crown-event="CSK_FTPClient/OnNewStatusRegisteredEventName">
+                                                            </crown-on>
+                                                            <crown-set event="change"
+                                                                crown-function="CSK_FTPClient/setRegistereEventName"
+                                                                protocol="crownMSGPACK" crown-path="name">
+                                                            </crown-set>
                                                         </davinci-text-field>
                                                     </layout-column>
                                                     <layout-column id="ColumnLayout11"
@@ -714,25 +716,24 @@
                                                                             title="Directly save data with .jpg file extension. No prior JPG compression.">
                                                                             <span>RAW_JPG</span>
                                                                         </davinci-option>
-                                                                        <crown-edpws-binding property="value"
-                                                                            name="CSK_FTPClient/OnNewStatusDataType"
-                                                                            update-on-resume>
-                                                                        </crown-edpws-binding>
-                                                                        <crown-binding event="change"
-                                                                            name="CSK_FTPClient/setDataType"
-                                                                            path="param/args/dataType" auto-commit>
-                                                                        </crown-binding>
+                                                                        <crown-on property="value"
+                                                                            crown-event="CSK_FTPClient/OnNewStatusDataType">
+                                                                        </crown-on>
+                                                                        <crown-set event="change"
+                                                                            crown-function="CSK_FTPClient/setDataType"
+                                                                            protocol="crownMSGPACK"
+                                                                            crown-path="dataType">
+                                                                        </crown-set>
                                                                     </davinci-drop-down>
                                                                     <davinci-checkbox id="CB_AutoFilename">
                                                                         <span>Auto name</span>
-                                                                        <crown-edpws-binding property="checked"
-                                                                            name="CSK_FTPClient/OnNewStatusAutoFilename"
-                                                                            update-on-resume>
-                                                                        </crown-edpws-binding>
-                                                                        <crown-binding event="change"
-                                                                            name="CSK_FTPClient/setAutoFilename"
-                                                                            path="param/args/status" auto-commit>
-                                                                        </crown-binding>
+                                                                        <crown-on property="checked"
+                                                                            crown-event="CSK_FTPClient/OnNewStatusAutoFilename">
+                                                                        </crown-on>
+                                                                        <crown-set event="change"
+                                                                            crown-function="CSK_FTPClient/setAutoFilename"
+                                                                            protocol="crownMSGPACK" crown-path="status">
+                                                                        </crown-set>
                                                                     </davinci-checkbox>
                                                                 </layout-row>
                                                             </layout-column>
@@ -746,14 +747,13 @@
                                                                         title="Add data">
                                                                         <davinci-icon icon="content/add"></davinci-icon>
                                                                         <span></span>
-                                                                        <crown-binding event="submit"
-                                                                            name="CSK_FTPClient/addRegistrationViaUI"
-                                                                            auto-commit>
-                                                                        </crown-binding>
-                                                                        <crown-edpws-binding property="disabled"
-                                                                            name="CSK_FTPClient/OnNewStatusFlowConfigPriority"
-                                                                            update-on-resume>
-                                                                        </crown-edpws-binding>
+                                                                        <crown-set event="submit"
+                                                                            crown-function="CSK_FTPClient/addRegistrationViaUI"
+                                                                            protocol="crownMSGPACK">
+                                                                        </crown-set>
+                                                                        <crown-on property="disabled"
+                                                                            crown-event="CSK_FTPClient/OnNewStatusFlowConfigPriority">
+                                                                        </crown-on>
                                                                     </davinci-button>
                                                                     <davinci-button id="Button_DELETE"
                                                                         class="myCustomButton_CSK_Module_FTPClient"
@@ -762,14 +762,13 @@
                                                                         <davinci-icon icon="action/delete">
                                                                         </davinci-icon>
                                                                         <span></span>
-                                                                        <crown-binding event="submit"
-                                                                            name="CSK_FTPClient/deleteRegistrationViaUI"
-                                                                            auto-commit>
-                                                                        </crown-binding>
-                                                                        <crown-edpws-binding property="disabled"
-                                                                            name="CSK_FTPClient/OnNewStatusFlowConfigPriority"
-                                                                            update-on-resume>
-                                                                        </crown-edpws-binding>
+                                                                        <crown-set event="submit"
+                                                                            crown-function="CSK_FTPClient/deleteRegistrationViaUI"
+                                                                            protocol="crownMSGPACK">
+                                                                        </crown-set>
+                                                                        <crown-on property="disabled"
+                                                                            crown-event="CSK_FTPClient/OnNewStatusFlowConfigPriority">
+                                                                        </crown-on>
                                                                     </davinci-button>
                                                                 </layout-row>
                                                             </layout-column>
@@ -783,14 +782,13 @@
                                                     </curie-table-column>
                                                     <curie-table-column id="DTC_AutoFilename" header="AutoFilename">
                                                     </curie-table-column>
-                                                    <crown-edpws-binding property="data"
-                                                        name="CSK_FTPClient/OnNewStatusRegistrationList"
-                                                        update-on-resume>
-                                                    </crown-edpws-binding>
-                                                    <crown-binding event="row-selected"
-                                                        name="CSK_FTPClient/setUITableSelection"
-                                                        path="param/args/selection" auto-commit>
-                                                    </crown-binding>
+                                                    <crown-on property="data"
+                                                        crown-event="CSK_FTPClient/OnNewStatusRegistrationList">
+                                                    </crown-on>
+                                                    <crown-set event="row-selected"
+                                                        crown-function="CSK_FTPClient/setUITableSelection"
+                                                        protocol="crownMSGPACK" crown-path="selection">
+                                                    </crown-set>
                                                 </curie-table>
                                             </layout-column>
                                         </layout-row>
@@ -808,9 +806,9 @@
                             </davinci-callout>
                         </layout-column>
                     </stacked-pane>
-                    <crown-edpws-binding property="value" name="CSK_FTPClient/OnUserLevelMaintenanceActive"
-                        update-on-resume converter="function(value) {return value.toString();}">
-                    </crown-edpws-binding>
+                    <crown-on property="value" crown-event="CSK_FTPClient/OnUserLevelMaintenanceActive"
+                        converter="function(value) {return value.toString();}">
+                    </crown-on>
                 </stacked-view>
             </stacked-pane>
             <stacked-pane id="SP_NoSupport" value="false">
@@ -824,17 +822,16 @@
                     </layout-column>
                 </layout-row>
             </stacked-pane>
-            <crown-edpws-binding property="value" name="CSK_FTPClient/OnNewStatusModuleIsActive" update-on-resume
+            <crown-on property="value" crown-event="CSK_FTPClient/OnNewStatusModuleIsActive"
                 converter="function(value) {return value.toString();}">
-            </crown-edpws-binding>
+            </crown-on>
         </stacked-view>
         <stacked-view id="SV_PageCalled">
-            <crown-binding property="value" name="CSK_FTPClient/pageCalled" path="result/data/empty" auto-update="0"
-                update-on-resume>
-            </crown-binding>
-            <crown-edpws-binding property="value" name="CSK_FTPClient/OnNewStatusCSKStyle" update-on-resume
-                converter="changeStyle">
-            </crown-edpws-binding>
+            <crown-get property="value" crown-function="CSK_FTPClient/pageCalled" protocol="crownMSGPACK"
+                crown-path="empty" auto-update-ms="0">
+            </crown-get>
+            <crown-on property="value" crown-event="CSK_FTPClient/OnNewStatusCSKStyle" converter="changeStyle">
+            </crown-on>
         </stacked-view>
     </layout-column>
 </layout-row>

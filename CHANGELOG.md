@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## Release 4.4.0
+
+### New features
+- Select interface for FTP connection
+
+### Bugfix
+- Updated legacy UI bindings
+
 ## Release 4.3.0
 
 ### New features

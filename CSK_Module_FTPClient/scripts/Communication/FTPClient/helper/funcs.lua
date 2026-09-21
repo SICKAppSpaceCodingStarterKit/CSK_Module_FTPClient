@@ -129,6 +129,24 @@ local function createStringListBySimpleTable(content)
 end
 funcs.createStringListBySimpleTable = createStringListBySimpleTable
 
+-- Function to create a string list for dropdown menu from list of strings
+---@param list string[] Lua Table with entries for list
+---@return string jsonstring List created of table entries
+local function createStringListFromList(list)
+  local stringList = "["
+  local first = true
+  for _, entity in ipairs(list) do
+    if not first then
+      stringList = stringList .. ", "
+    end
+    first = false
+    stringList = stringList .. '"' .. entity .. '"'
+  end
+  stringList = stringList .. "]"
+  return stringList
+end
+funcs.createStringListFromList = createStringListFromList
+
 --- Function to create a JSON string out of a table content
 ---@param content string[] Lua Table with entries for list
 ---@param selectedParam string Currently selected parameter

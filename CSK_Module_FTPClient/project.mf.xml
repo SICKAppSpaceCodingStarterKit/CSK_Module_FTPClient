@@ -189,6 +189,14 @@ It is possible to register to events of other apps to put the received data to t
                     <desc>Notify status of keep alive interval.</desc>
                     <param desc="Interval in seconds." multiplicity="1" name="interval" type="int"/>
                 </event>
+                <event name="OnNewStatusInterface">
+                    <desc>Interface to use for FTP connection.</desc>
+                    <param desc="Interface" multiplicity="1" name="interface" type="string"/>
+                </event>
+                <event name="OnNewStatusListOfInterfaces">
+                    <desc>List of available ethernet interfaces to use for FTP connection.</desc>
+                    <param desc="List of available ethernet interfaces." multiplicity="1" name="list" type="string"/>
+                </event>
                 <function name="pageCalled">
                     <desc>Function to register "OnResume" of the module UI (only as helper function).</desc>
                     <return desc="Empty string (only needed to simplify binding)." multiplicity="1" name="empty" type="string"/>
@@ -405,6 +413,10 @@ If TRUE it will send the content in its own thread, but other apps can further r
                     <desc>Function to set interval to send keep alive commands. Set to 0 to disable.</desc>
                     <param desc="Interval in seconds." multiplicity="1" name="interval" type="int"/>
                 </function>
+                <function name="setInterface">
+                    <desc>Function to set interface to use for FTP connection.</desc>
+                    <param desc="Interface" multiplicity="1" name="interface" type="string"/>
+                </function>
             </serves>
         </crown>
         <crown name="FTPClient_FC">
@@ -439,7 +451,7 @@ If TRUE it will send the content in its own thread, but other apps can further r
             </crown>
         </crown>
         <meta key="author">SICK AG</meta>
-        <meta key="version">4.3.0</meta>
+        <meta key="version">4.4.0</meta>
         <meta key="priority">low</meta>
         <meta key="copy-protected">false</meta>
         <meta key="read-protected">false</meta>
